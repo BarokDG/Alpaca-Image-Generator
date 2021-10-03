@@ -16,27 +16,9 @@
         <div class="alpaca">
           <div class="alpaca__menu">
             <div class="alpaca__preview">
-              <img
-                src="/assets/alpaca/backgrounds/darkblue70.png"
-                alt=""
-                class="background"
-              />
-              <img src="/assets/alpaca/neck/default.png" alt="" class="neck" />
-              <img src="/assets/alpaca/leg/default.png" alt="" class="leg" />
-              <img src="/assets/alpaca/ears/default.png" alt="" class="ears" />
-              <img src="/assets/alpaca/hair/default.png" alt="" class="hair" />
-              <img src="/assets/alpaca/eyes/default.png" alt="" class="eyes" />
-              <img
-                src="/assets/alpaca/accessories/headphone.png"
-                alt=""
-                class="accessories"
-              />
-              <img
-                src="/assets/alpaca/mouth/default.png"
-                alt=""
-                class="mouth"
-              />
-              <img src="/assets/alpaca/nose.png" alt="" class="nose" />
+              <img v-for="item in Object.keys(options)"
+              v-bind:src=`/assets/alpaca/${item}/${options[item][0]}.png`
+              :ref=item alt="" />
             </div>
             <div class="alpaca__actions">
               <button id="random">Random</button>
@@ -46,10 +28,14 @@
           <div class="alpaca__options">
             <h2>Accessorize the Alpaca</h2>
             <div class="alpaca__item">
+              <!-- 
+                Only one option for nose
+              -->
               <button
                 v-for="item in Object.keys(options)"
-                v-bind:class="{clicked: item === marker}"
-                @click="marker = item"
+                v-if="(item !== 'nose')" 
+                v-bind:class="{clicked: item === selection}"
+                @click="selection = item"
               >
                 {{ item }}
               </button>
@@ -57,7 +43,12 @@
 
             <h2>Style</h2>
             <div class="alpaca__style">
-              <button v-for="style in options[marker]">{{ style }}</button>
+              <button
+                v-for="style in options[selection]"
+                @click="updateImageSource(style)"
+              >
+                {{ style }}
+              </button>
             </div>
           </div>
         </div>

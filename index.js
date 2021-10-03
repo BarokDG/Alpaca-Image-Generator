@@ -1,28 +1,29 @@
 const app = new Vue({
   el: "#app",
   data: {
-    marker: "hair",
+    selection: "hair",
     options: {
-      hair: ["bang", "curls", "default", "elegant", "fancy", "quiff", "short"],
+      backgrounds: ["darkblue70", "darkblue", "green", "grey", "red", "yellow"],
       ears: ["default", "tilt-backward", "tilt-forward"],
-      eyes: ["angry", "default", "naughty", "panda", "smart", "star"],
-      mouth: ["astonished", "default", "eating", "laugh", "tongue"],
-      neck: ["bend-backward", "bend-forward", "default", "thick"],
+      neck: ["default", "bend-backward", "bend-forward", "thick"],
       leg: [
+        "default",
         "bubble-tea",
         "cookie",
-        "default",
         "game-console",
         "tilt-backward",
         "tilt-forward",
       ],
-      accessories: ["earings", "flower", "glasses", "headphone"],
-      backgrounds: ["blue", "darkblue", "green", "grey", "red", "yellow"],
+      nose: ["nose"],
+      hair: ["default", "bang", "curls", "elegant", "fancy", "quiff", "short"],
+      accessories: ["headphone", "earings", "flower", "glasses"],
+      eyes: ["default", "angry", "naughty", "panda", "smart", "star"],
+      mouth: ["default", "astonished", "eating", "laugh", "tongue"],
     },
   },
-  // computed: {
-  //   selected: function () {
-
-  //   }
-  // }
+  methods: {
+    updateImageSource: function (style) {
+      this.$refs[this.selection][0].src = `/assets/alpaca/${this.selection}/${style}.png`;
+    },
+  },
 });
