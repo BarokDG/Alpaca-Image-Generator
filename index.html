@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Some Vue App</title>
+
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <script src="/node_modules/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="wrapper">
+        <h1>Alpaca Generator</h1>
+        <div class="alpaca">
+          <div class="alpaca__menu">
+            <div class="alpaca__preview">
+              <img
+                src="/assets/alpaca/backgrounds/darkblue70.png"
+                alt=""
+                class="background"
+              />
+              <img src="/assets/alpaca/neck/default.png" alt="" class="neck" />
+              <img src="/assets/alpaca/leg/default.png" alt="" class="leg" />
+              <img src="/assets/alpaca/ears/default.png" alt="" class="ears" />
+              <img src="/assets/alpaca/hair/default.png" alt="" class="hair" />
+              <img src="/assets/alpaca/eyes/default.png" alt="" class="eyes" />
+              <img
+                src="/assets/alpaca/accessories/headphone.png"
+                alt=""
+                class="accessories"
+              />
+              <img
+                src="/assets/alpaca/mouth/default.png"
+                alt=""
+                class="mouth"
+              />
+              <img src="/assets/alpaca/nose.png" alt="" class="nose" />
+            </div>
+            <div class="alpaca__actions">
+              <button id="random">Random</button>
+              <button id="download">Download</button>
+            </div>
+          </div>
+          <div class="alpaca__options">
+            <h3>Accessorize the Alpaca</h3>
+            <div class="alpaca__item">
+              <button>Hair</button>
+              <button>Ears</button>
+              <button>Eyes</button>
+              <button>Mouth</button>
+              <button>Neck</button>
+              <button>Leg</button>
+              <button>Accessories</button>
+              <button>Background</button>
+            </div>
+
+            <h3>Style</h3>
+            <div class="alpaca__style"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="/index.js"></script>
+  </body>
+</html>

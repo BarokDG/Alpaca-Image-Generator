@@ -1,0 +1,96 @@
+@import url("/node_modules/normalize.css/normalize.css");
+
+$clr-bg: blue;
+
+%flex {
+  display: flex;
+}
+
+main {
+  height: 100vh;
+  background: #ccc;
+}
+
+main,
+.alpaca,
+.alpaca__menu,
+.alpaca__actions,
+.alpaca__item {
+  @extend %flex;
+}
+
+.wrapper {
+  margin: auto;
+}
+
+.alpaca__menu {
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.alpaca__preview {
+  width: 320px;
+  aspect-ratio: 1;
+
+  position: relative;
+
+  img {
+    position: absolute;
+    max-width: 100%;
+  }
+}
+
+.alpaca__actions {
+  justify-content: space-between;
+
+  button {
+    @extend %flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem 2rem;
+    border: none;
+    outline: none;
+
+    &::before {
+      width: 1.2rem;
+      margin-right: 0.2rem;
+    }
+
+    &#random::before {
+      content: url(/assets/icons/random.svg);
+    }
+
+    &#download::before {
+      content: url(/assets/icons/download.svg);
+    }
+  }
+}
+
+.alpaca__options {
+  padding: 0 2rem;
+
+  :not(div + h3) {
+    margin-top: 0;
+  }
+
+  button {
+    border-radius: 2rem;
+    color: $clr-bg;
+    border: 1px solid;
+    background: none;
+    padding: 0.5rem 2rem;
+
+    cursor: pointer;
+  }
+
+  .clicked {
+    background: blue;
+    color: white;
+  }
+}
+
+.alpaca__item {
+  width: 400px;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.5rem;
+}
