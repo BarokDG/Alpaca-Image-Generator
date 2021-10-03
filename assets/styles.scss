@@ -1,26 +1,50 @@
 @import url("/node_modules/normalize.css/normalize.css");
 
 $clr-bg: blue;
+$wl: 20rem;
+$wr: 25rem;
+$text: white;
 
 %flex {
   display: flex;
 }
 
 main {
-  height: 100vh;
+  min-height: 100vh;
   background: #ccc;
+
+  font-family: sans-serif;
 }
 
 main,
 .alpaca,
 .alpaca__menu,
-.alpaca__actions,
-.alpaca__item {
+.alpaca__actions {
   @extend %flex;
+}
+
+h1,
+h2 {
+  text-transform: uppercase;
 }
 
 .wrapper {
   margin: auto;
+}
+
+.alpaca {
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+@media screen and (max-width: 670px) {
+  .wrapper {
+    padding-inline: calc((100vw - 20rem) / 2);
+  }
+
+  .alpaca {
+    gap: 2rem 0;
+  }
 }
 
 .alpaca__menu {
@@ -29,7 +53,7 @@ main,
 }
 
 .alpaca__preview {
-  width: 320px;
+  width: $wl;
   aspect-ratio: 1;
 
   position: relative;
@@ -67,30 +91,32 @@ main,
 }
 
 .alpaca__options {
-  padding: 0 2rem;
-
-  :not(div + h3) {
+  :not(div + h2) {
     margin-top: 0;
   }
 
   button {
     border-radius: 2rem;
     color: $clr-bg;
-    border: 1px solid;
+    border: thin solid $clr-bg;
     background: none;
     padding: 0.5rem 2rem;
 
     cursor: pointer;
-  }
 
-  .clicked {
-    background: blue;
-    color: white;
+    &.clicked {
+      background: $clr-bg;
+      color: $text;
+    }
   }
 }
 
-.alpaca__item {
-  width: 400px;
-  flex-wrap: wrap;
-  gap: 0.2rem 0.5rem;
+.alpaca__item,
+.alpaca__style {
+  width: $wr;
+
+  button {
+    text-transform: capitalize;
+    margin: 0 .5rem .2rem 0;
+  }
 }

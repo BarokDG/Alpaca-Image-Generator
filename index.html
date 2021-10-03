@@ -11,7 +11,7 @@
   </head>
   <body>
     <main>
-      <div class="wrapper">
+      <div class="wrapper" id="app">
         <h1>Alpaca Generator</h1>
         <div class="alpaca">
           <div class="alpaca__menu">
@@ -44,20 +44,21 @@
             </div>
           </div>
           <div class="alpaca__options">
-            <h3>Accessorize the Alpaca</h3>
+            <h2>Accessorize the Alpaca</h2>
             <div class="alpaca__item">
-              <button>Hair</button>
-              <button>Ears</button>
-              <button>Eyes</button>
-              <button>Mouth</button>
-              <button>Neck</button>
-              <button>Leg</button>
-              <button>Accessories</button>
-              <button>Background</button>
+              <button
+                v-for="item in Object.keys(options)"
+                v-bind:class="{clicked: item === marker}"
+                @click="marker = item"
+              >
+                {{ item }}
+              </button>
             </div>
 
-            <h3>Style</h3>
-            <div class="alpaca__style"></div>
+            <h2>Style</h2>
+            <div class="alpaca__style">
+              <button v-for="style in options[marker]">{{ style }}</button>
+            </div>
           </div>
         </div>
       </div>

@@ -2,27 +2,46 @@
 .alpaca__actions button, main,
 .alpaca,
 .alpaca__menu,
-.alpaca__actions,
-.alpaca__item {
+.alpaca__actions {
   display: flex;
 }
 
 main {
-  height: 100vh;
+  min-height: 100vh;
   background: #ccc;
+  font-family: sans-serif;
+}
+
+h1,
+h2 {
+  text-transform: uppercase;
 }
 
 .wrapper {
   margin: auto;
 }
 
+.alpaca {
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+@media screen and (max-width: 670px) {
+  .wrapper {
+    padding-inline: calc((100vw - 20rem) / 2);
+  }
+
+  .alpaca {
+    gap: 2rem 0;
+  }
+}
 .alpaca__menu {
   flex-direction: column;
   gap: 0.5rem;
 }
 
 .alpaca__preview {
-  width: 320px;
+  width: 20rem;
   aspect-ratio: 1;
   position: relative;
 }
@@ -52,29 +71,30 @@ main {
   content: url(/assets/icons/download.svg);
 }
 
-.alpaca__options {
-  padding: 0 2rem;
-}
-.alpaca__options :not(div + h3) {
+.alpaca__options :not(div + h2) {
   margin-top: 0;
 }
 .alpaca__options button {
   border-radius: 2rem;
   color: blue;
-  border: 1px solid;
+  border: thin solid blue;
   background: none;
   padding: 0.5rem 2rem;
   cursor: pointer;
 }
-.alpaca__options .clicked {
+.alpaca__options button.clicked {
   background: blue;
   color: white;
 }
 
-.alpaca__item {
-  width: 400px;
-  flex-wrap: wrap;
-  gap: 0.2rem 0.5rem;
+.alpaca__item,
+.alpaca__style {
+  width: 25rem;
+}
+.alpaca__item button,
+.alpaca__style button {
+  text-transform: capitalize;
+  margin: 0 0.5rem 0.2rem 0;
 }
 
 /*# sourceMappingURL=styles.css.map */
